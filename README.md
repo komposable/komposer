@@ -4,6 +4,7 @@
 
 ```ruby
 gem 'komposer'
+```
 
 In order to use **Komposer** in your administration panel, you need to
 require some dependencies.
