@@ -1,0 +1,15 @@
+- block_name = block.class.to_s.tableize
+
+.panel-heading
+  .panel-title
+    = block_name.to_s.classify.constantize.model_name.human
+    .pull-right
+      span.glyphicon.glyphicon-minus.collapse-block-form-button
+      span.glyphicon.glyphicon-trash.remove-block-form-button
+      span.glyphicon.glyphicon-resize-vertical.handler
+.panel-body.collapse.in
+  = form.fields_for block_name, block, child_index: index do |t|
+    = t.hidden_field :id, value: block.id
+    = t.hidden_field :position, value: block.position, class: "block-position"
+    = t.hidden_field :_destroy, value: false, class: "block-destroy"
+    = render partial: "components/#{block_name}/block_form", locals: { block_form: t }

@@ -1,0 +1,10 @@
+h3= form.object.class.human_attribute_name(:blocks)
+
+.ouvrages-blocks
+  - buttons = render partial: "blocks/buttons", locals: { id: "___ID___", form: form }
+  .block-forms(data={ buttons: { html: buttons }.to_json })
+    - form.object.blocks.each do |block|
+      .block-form
+        = render partial: "blocks/buttons", locals: { id: "#{block.class.name.parameterize}-#{block.id}", form: form }
+        .panel.panel-primary.block-panel= form.block_form block
+  = render partial: "blocks/buttons", locals: { id: "all", form: form }

@@ -1,0 +1,12 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate komposer:block rich_text_block title:string text:text
+
+    This will create:
+      frontend/components/rich_text_blocks/_rich_text_block.html.slim
+      frontend/components/rich_text_blocks/_block_form.html.slim
+      app/models/rich_text_block.rb
+      db/migrate/create_rich_text_blocks.rb
+

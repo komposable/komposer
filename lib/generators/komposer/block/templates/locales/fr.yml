@@ -1,0 +1,9 @@
+fr:
+  activerecord:
+    models:
+      <%= block_name_singular %>:
+    attributes:
+      <%= block_name_singular %>:
+<% attributes.each do |attribute| -%>
+        <%= attribute.name %>:
+<% end -%>

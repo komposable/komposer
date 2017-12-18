@@ -1,0 +1,4 @@
+.<%= block_name_singular %>
+  <%- attributes.each do |attribute| -%>
+  = <%= block_name_singular %>.<%= attribute.name %>
+  <%- end -%>

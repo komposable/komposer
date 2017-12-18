@@ -1,0 +1,11 @@
+class <%= block_class_name %> < <%= model_class_name %>
+  belongs_to :parent, polymorphic: true
+
+  def self.permitted_attributes
+    <%= [:id, :position, :_destroy].concat(attributes.map(&:name).map(&:to_sym)) %>
+  end
+
+  def to_partial_path
+    "components/<%= block_name_plural %>/<%= block_name_singular %>"
+  end
+end

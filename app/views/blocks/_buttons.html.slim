@@ -1,0 +1,9 @@
+.block-buttons.text-center(data={ target: id })
+  button.blocks-toggle.btn.btn-default.btn-circle(type="button" data={ toggle: "collapse", target: "#buttons-#{id}" } title="Ajouter un block")
+    i.glyphicon.glyphicon-plus
+  .collapse(id="buttons-#{id}")
+    - form.object.block_buttons.each do |block_name|
+      - new_block = form.block_form block_name.to_s.singularize.classify.constantize.new, template: true
+      - new_block = new_block.html_safe
+      button.btn.btn-default(data={ form: { html: new_block }.to_json, id: id } type="button" class="block-button")
+        = block_name.to_s.classify.constantize.model_name.human
