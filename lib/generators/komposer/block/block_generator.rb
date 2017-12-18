@@ -42,30 +42,30 @@ module Komposer
       def create_view_files
         template(
           "views/admin.html.slim",
-          File.join("frontend", "components", block_name_plural, "_block_form.html.slim")
+          File.join("frontend", "components", block_name_singular, "_block_form.html.slim")
         )
         template(
           "views/show.html.slim",
-          File.join("frontend", "components", block_name_plural, "_#{block_name_singular}.html.slim")
+          File.join("frontend", "components", block_name_singular, "_#{block_name_singular}.html.slim")
         )
       end
 
       def create_js_file
         template(
           "js.erb",
-          File.join("frontend", "components", block_name_plural, "#{block_name_singular}.js")
+          File.join("frontend", "components", block_name_singular, "#{block_name_singular}.js")
         )
       end
 
       def create_css_file
         template(
           "css.erb",
-          File.join("frontend", "components", block_name_plural, "#{block_name_singular}.css")
+          File.join("frontend", "components", block_name_singular, "#{block_name_singular}.css")
         )
       end
 
       def append_packs
-        append_to_file("frontend/components/index.js", "import \"components/#{block_name_plural}/#{block_name_singular}\";\n")
+        append_to_file("frontend/components/index.js", "import \"components/#{block_name_singular}/#{block_name_singular}\";\n")
       end
 
       def self.next_migration_number(dirname)

@@ -12,4 +12,4 @@
     = t.hidden_field :id, value: block.id
     = t.hidden_field :position, value: block.position, class: "block-position"
     = t.hidden_field :_destroy, value: false, class: "block-destroy"
-    = render partial: "components/#{block_name}/block_form", locals: { block_form: t }
+    = render partial: "components/#{block_name.singularize}/block_form", locals: { block_form: t }
