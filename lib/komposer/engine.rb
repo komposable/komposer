@@ -14,12 +14,12 @@ module Komposer
   end
 end
 
-require "bootstrap_form"
-require "bootstrap_form/form_builder"
 require "komposer/block_field"
 
-module BootstrapForm
-  class FormBuilder
-    include Komposer::BlockField
+module ActionView
+  module Helpers
+    class FormBuilder
+      include Komposer::BlockField
+    end
   end
 end
